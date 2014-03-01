@@ -23,7 +23,7 @@ attrs = HashDict.new([
   description: 'New user'
 ])
 
-{:ok, customer} = Stripe.Customers.create(attrs)
+{:ok, customer} = Stripe.Customer.create(attrs)
 IO.puts HashDict.get(customer, "email") # foo@bar.com
 ```
 
@@ -35,15 +35,32 @@ attrs = HashDict.new([
   description: 'Updated description'
 ])
 
-{:ok, customer} = Stripe.Customers.update("cus_3aDRxsZH8sTV6F", attrs)
+{:ok, customer} = Stripe.Customer.update("cus_3aDRxsZH8sTV6F", attrs)
 ```
 
 ### Deleting a Customer
 
 ```elixir
 id = "cus_3aDRxsZH8sTV6F"
-{:ok, _body} = Stripe.Customers.delete(id)
+{:ok, message} = Stripe.Customer.delete(id)
 ```
+
+### Retrieving a Customer
+
+```elixir
+id = "cus_3aDRxsZH8sTV6F"
+{:ok, customer} = Stripe.Customer.retrieve(id)
+```
+
+### Listing Customers
+
+```elixir
+{:ok, customers} = Stripe.Customer.list
+```
+
+All implemented API methods use the same names as above when applicable except
+Cards, Discounts, and Subscriptions which each take a `customer_id` as their
+first argument.
 
 ## Todo
 
@@ -52,7 +69,8 @@ id = "cus_3aDRxsZH8sTV6F"
 The following parts of the API need to be implemented
 
 * Charges
-* Cards
+* ~~Customers~~
+* ~~Cards~~
 * Subscriptions
 * Plans
 * Coupons

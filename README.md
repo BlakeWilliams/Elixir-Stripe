@@ -56,6 +56,11 @@ id = "cus_3aDRxsZH8sTV6F"
 
 ```elixir
 {:ok, customers} = Stripe.Customer.list
+customers = HashDict.get(customers, "data")
+
+Enum.each customers, fn customer ->
+  IO.puts HashDict.get(customer, "id")
+end
 ```
 
 All implemented API methods use the same names as above when applicable except

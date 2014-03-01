@@ -1,0 +1,1 @@
+defexception StripeError, message: "error"

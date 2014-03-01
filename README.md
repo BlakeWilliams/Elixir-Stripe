@@ -35,7 +35,7 @@ attrs = HashDict.new([
   description: 'Updated description'
 ])
 
-{:ok, customer} = Stripe.Customers.create("cus_3aDRxsZH8sTV6F", attrs)
+{:ok, customer} = Stripe.Customers.update("cus_3aDRxsZH8sTV6F", attrs)
 ```
 
 ### Deleting a Customer

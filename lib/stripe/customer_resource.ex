@@ -7,6 +7,13 @@ defmodule Stripe.CustomerResource do
       use Stripe.CustomerResource.List
       use Stripe.CustomerResource.Retrieve
       use Stripe.CustomerResource.Update
+
+
+      def build_customer_url(customer_id, ext \\ "") do
+        if ext != "", do: ext = "/" <> ext
+
+        @base <> "/#{customer_id}/#{@resource}" <> ext
+      end
     end
   end
 end

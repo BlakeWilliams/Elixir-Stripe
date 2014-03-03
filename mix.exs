@@ -4,6 +4,9 @@ defmodule Stripe.Mixfile do
   def project do
     [ app: :stripe,
       version: "0.0.1",
+      name: "Stripe",
+      source_url: "https://github.com/BlakeWilliams/Elixir-Stripe",
+      homepage_url: "https://github.com/BlakeWilliams/Elixir-Stripe",
       elixir: "~> 0.12.4",
       deps: deps(Mix.env)
     ]
@@ -20,7 +23,7 @@ defmodule Stripe.Mixfile do
   defp deps(:dev) do
     deps(:prod) ++
     [
-      { :exvcr, github: "parroty/exvcr" }
+      { :exvcr, github: "parroty/exvcr" },
     ]
   end
 

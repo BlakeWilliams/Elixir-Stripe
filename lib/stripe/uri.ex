@@ -1,4 +1,8 @@
 defmodule Stripe.URI do
+  @moduledoc """
+  Stripe URI helpers to encode nested dictionaries as query_params.
+  """
+
   defmacro __using__(_) do
     quote do
       defp build_url(ext \\ "") do
@@ -6,15 +10,22 @@ defmodule Stripe.URI do
 
         @base <> ext
       end
-
-      def build_customer_url(customer_id, ext \\ "") do
-        if ext != "", do: ext = "/" <> ext
-
-        @base <> "/#{customer_id}/#{@resource}" <> ext
-      end
     end
   end
 
+  @doc """
+  Takes a flat or nested HashDict and turns it into proper query values.
+
+  ## Example
+  card = HashDict.new([
+    card: HashDict.new([
+      number: 424242424242,
+      exp_year: 2014
+    ])
+  ])
+
+  Stripe.URI.encode_query(card) # card[number]=424242424242&card[exp_year]=2014
+  """
   def encode_query(list) do
     Enum.map_join list, "&", fn x ->
       pair(x)
@@ -39,7 +50,7 @@ defmodule Stripe.URI do
         Enumerable.impl_for(value) ->
           pair(root, parents ++ [key], value)
         true ->
-          string =  build_key(root, parents ++ [key]) <> to_string(value)
+          build_key(root, parents ++ [key]) <> to_string(value)
       end
     end
   end

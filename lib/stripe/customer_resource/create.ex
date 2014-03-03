@@ -1,6 +1,10 @@
 defmodule Stripe.CustomerResource.Create do
   defmacro __using__(_) do
     quote do
+      @doc """
+      Creates Stripe object for customer with customer_id
+      using the passed in attributes.
+      """
       def create(customer_id, attributes) do
         url = build_customer_url(customer_id)
         form_data = Stripe.URI.encode_query(attributes)
@@ -8,7 +12,7 @@ defmodule Stripe.CustomerResource.Create do
         Stripe.Request.post(url, form_data)
       end
 
-      def overridable :create
+      defoverridable [create: 2]
     end
 
   end

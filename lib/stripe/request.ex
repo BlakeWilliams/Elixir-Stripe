@@ -1,23 +1,30 @@
 defmodule Stripe.Request do
+  @moduledoc """
+  This module is a thin layer on top of HTTPotion. Its main purpose is to
+  pass the `Authorization` header to Stripe.
+  """
   alias HTTPotion.Response
 
+  @doc "Send a GET request to url"
   def get(url) do
-    response = HTTPotion.get(url, auth_header)
+    HTTPotion.get(url, auth_header)
     |> parse_response
   end
 
+  @doc "Send a POST request to url with body"
   def post(url, body) do
-    response = HTTPotion.post(url, body, auth_header)
+    HTTPotion.post(url, body, auth_header)
     |> parse_response
   end
 
-  def delete(url, headers \\ []) do
+  @doc "Send a DELETE request url"
+  def delete(url) do
     HTTPotion.delete(url, auth_header)
     |> parse_response
   end
 
   defp parse_response(response) do
-    Response[body: body, status_code: status, headers: headers] = response
+    Response[body: body, status_code: status, headers: _headers] = response
 
     {:ok, json} = JSON.decode(body)
 

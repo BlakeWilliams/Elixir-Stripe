@@ -1,6 +1,5 @@
 # Stripe
-A work in progress for using Elixir with the Stripe API. So far there is only
-Customer creation, deletion and updating.
+A work in progress for using Elixir with the Stripe API.
 
 Since this is only a thing wrapper around Stripe everything passed to and returned by
 Stripe should be a HashDict.

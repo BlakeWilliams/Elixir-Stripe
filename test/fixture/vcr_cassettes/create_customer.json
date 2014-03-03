@@ -1,0 +1,30 @@
+[
+  {
+    "request": {
+      "url": "https://api.stripe.com/v1/customers",
+      "headers": {
+        "Authorization": "Bearer API_KEY"
+      },
+      "method": "post",
+      "body": "description=Test+User%21&email=new%40bar.com",
+      "options": []
+    },
+    "response": {
+      "type": "ok",
+      "status_code": 200,
+      "headers": {
+        "Server": "nginx",
+        "Date": "Mon, 03 Mar 2014 20:05:16 GMT",
+        "Content-Type": "application/json;charset=utf-8",
+        "Content-Length": "553",
+        "Connection": "keep-alive",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Methods": "GET, POST, HEAD, OPTIONS, DELETE",
+        "Cache-Control": "no-cache, no-store",
+        "Access-Control-Max-Age": "300",
+        "Strict-Transport-Security": "max-age=31556926; includeSubDomains"
+      },
+      "body": "{\n  \"object\": \"customer\",\n  \"created\": 1393877116,\n  \"id\": \"cus_3bEmcC5vIPFcex\",\n  \"livemode\": false,\n  \"description\": \"Test User!\",\n  \"email\": \"new@bar.com\",\n  \"delinquent\": false,\n  \"metadata\": {},\n  \"subscriptions\": {\n    \"object\": \"list\",\n    \"count\": 0,\n    \"url\": \"/v1/customers/cus_3bEmcC5vIPFcex/subscriptions\",\n    \"data\": []\n  },\n  \"discount\": null,\n  \"account_balance\": 0,\n  \"currency\": null,\n  \"cards\": {\n    \"object\": \"list\",\n    \"count\": 0,\n    \"url\": \"/v1/customers/cus_3bEmcC5vIPFcex/cards\",\n    \"data\": []\n  },\n  \"default_card\": null\n}\n"
+    }
+  }
+]

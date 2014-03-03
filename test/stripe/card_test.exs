@@ -1,76 +1,80 @@
 defmodule StripeCardTest do
   use ExUnit.Case
+  use ExVCR.Mock
 
-  test "list cards" do
-    customer_id = create_customer
-    create_card(customer_id)
-
-    {:ok, cards} = Stripe.Card.list(customer_id, 5)
-
-    assert HashDict.get(cards, "count") == 1
+  setup do
+    { :ok, customer_id: TestHelper.create_customer }
   end
 
-  test "create a card" do
-    customer_id = create_customer
+  test "list cards", meta do
+    create_card meta[:customer_id]
 
+    use_cassette "list cards" do
+      {:ok, cards} = Stripe.Card.list(meta[:customer_id], 5)
+
+      assert HashDict.get(cards, "count") > 0
+    end
+  end
+
+  test "create a card", meta do
+    use_cassette "create card" do
+      {:ok, card} = Stripe.Card.create(meta[:customer_id], card_attrs)
+      assert HashDict.get(card, "last4") == "4242"
+    end
+  end
+
+  test "retrieve a card", meta do
+      id = create_card meta[:customer_id]
+    use_cassette "retrieve card" do
+
+      {:ok, card} = Stripe.Card.retrieve(meta[:customer_id], id)
+      assert HashDict.get(card, "last4") == "4242"
+    end
+  end
+
+  test "delete a card", meta do
+    use_cassette "delete card" do
+      {:ok, card} = Stripe.Card.create(meta[:customer_id], card_attrs)
+      id = HashDict.get(card, "id")
+
+      {:ok, card} = Stripe.Card.delete(meta[:customer_id], id)
+      assert HashDict.get(card, "deleted") == true
+    end
+  end
+
+
+  test "update a card", meta do
+    id = create_card meta[:customer_id]
+
+    use_cassette "delete card" do
+      {year, _, _} = :erlang.date
+      attrs = HashDict.new([
+        exp_year: year + 5
+      ])
+
+      {:ok, card} = Stripe.Card.update(meta[:customer_id], id, attrs)
+      assert HashDict.get(card, "exp_year") == year + 5
+    end
+  end
+
+  defp card_attrs do
     {year, _, _} = :erlang.date
-
     attrs = HashDict.new([
       number: 4242424242424242,
       exp_month: "02",
       exp_year: year + 1,
-      ])
-
-    card = HashDict.new([card: attrs])
-    {:ok, card} = Stripe.Card.create(customer_id, card)
-    assert HashDict.get(card, "last4") == "4242"
-  end
-
-  test "retreive a card" do
-    customer_id = create_customer
-    id = create_card(customer_id)
-
-    {:ok, card} = Stripe.Card.retrieve(customer_id, id)
-    assert HashDict.get(card, "last4") == "4242"
-  end
-
-  test "delete a card" do
-    customer_id = create_customer
-    id = create_card(customer_id)
-
-    {:ok, card} = Stripe.Card.delete(customer_id, id)
-    assert HashDict.get(card, "deleted") == true
-  end
-
-
-  test "update a card" do
-    customer_id = create_customer
-    id = create_card(customer_id)
-
-    {year, _, _} = :erlang.date
-    attrs = HashDict.new([
-      exp_year: year + 5
     ])
 
-    {:ok, card} = Stripe.Card.update(customer_id, id, attrs)
-    assert HashDict.get(card, "exp_year") == year + 5
+    HashDict.new([card: attrs])
   end
 
   defp create_card(customer_id) do
-    {year, _, _} = :erlang.date
-    attrs = HashDict.new([
-      number: 4242424242424242,
-      exp_month: "02",
-      exp_year: year + 1,
-    ])
+    [do: id] = use_cassette "create card helper" do
+      {:ok, card} = Stripe.Card.create(customer_id, card_attrs)
+      HashDict.get(card, "id")
+    end
 
-    card = HashDict.new([card: attrs])
-    {:ok, card} = Stripe.Card.create(customer_id, card)
-    HashDict.get(card, "id")
+    id
   end
 
-  defp create_customer do
-    {:ok, customer} = Stripe.Customer.create(HashDict.new)
-    HashDict.get(customer , "id")
-  end
 end

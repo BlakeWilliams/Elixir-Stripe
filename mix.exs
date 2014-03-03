@@ -5,7 +5,8 @@ defmodule Stripe.Mixfile do
     [ app: :stripe,
       version: "0.0.1",
       elixir: "~> 0.12.4",
-      deps: deps ]
+      deps: deps(Mix.env)
+    ]
   end
 
   # Configuration for the OTP application
@@ -15,8 +16,20 @@ defmodule Stripe.Mixfile do
     ]
   end
 
-  # Returns the list of dependencies in the format:
-  defp deps do
+  # Returns the list of development dependencies
+  defp deps(:dev) do
+    deps(:prod) ++
+    [
+      { :exvcr, github: "parroty/exvcr" }
+    ]
+  end
+
+  defp deps(:test) do
+    deps(:dev)
+  end
+
+  # Returns the list of production dependencies
+  defp deps(:prod) do
     [
       { :httpotion, github: "myfreeweb/httpotion" },
       { :json, github: "cblage/elixir-json" }

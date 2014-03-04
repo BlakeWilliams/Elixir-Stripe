@@ -72,7 +72,7 @@ first argument.
 
 The following parts of the API need to be implemented
 
-* Charges
+* ~~Charges~~
 * ~~Customers~~
 * ~~Cards~~
 * Subscriptions

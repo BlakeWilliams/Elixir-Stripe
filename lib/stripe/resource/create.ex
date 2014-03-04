@@ -5,7 +5,7 @@ defmodule Stripe.Resource.Create do
       Creates Stripe object with passed in attributes
       """
       def create(attributes) do
-        form_data = URI.encode_query(attributes)
+        form_data = Stripe.URI.encode_query(attributes)
 
         Stripe.Request.post(build_url, form_data)
       end

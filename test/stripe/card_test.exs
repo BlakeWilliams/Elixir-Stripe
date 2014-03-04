@@ -1,4 +1,4 @@
-defmodule StripeCardTest do
+defmodule Stripe.CardTest do
   use ExUnit.Case
   use ExVCR.Mock
 
@@ -24,7 +24,7 @@ defmodule StripeCardTest do
   end
 
   test "retrieve a card", meta do
-      id = create_card meta[:customer_id]
+    id = create_card meta[:customer_id]
     use_cassette "retrieve card" do
 
       {:ok, card} = Stripe.Card.retrieve(meta[:customer_id], id)

@@ -1,4 +1,4 @@
-defmodule StripeURITest do
+defmodule Stripe.URITest do
   use ExUnit.Case
 
   test "returns single level query params" do

@@ -5,7 +5,7 @@ defmodule Stripe.Resource.Update do
       Updates Stripe object with passed in id with attributes
       """
       def update(id, attributes) do
-        form_data = URI.encode_query(attributes)
+        form_data = Stripe.URI.encode_query(attributes)
 
         build_url(id)
         |> Stripe.Request.post(form_data)

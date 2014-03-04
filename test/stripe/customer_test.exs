@@ -1,4 +1,4 @@
-defmodule StripeCustomerTest do
+defmodule Stripe.CustomerTest do
   use ExUnit.Case
   use ExVCR.Mock
 

@@ -4,7 +4,7 @@ defmodule Stripe.Customer do
 
   https://stripe.com/docs/api#customers
 
-  Stripe.Card provides `list`, `retrieve`, `create`, `update`, and `delete`.
+  Stripe.Customer provides `list`, `retrieve`, `create`, `update`, and `delete`.
   
   ## Example
     attrs = HashDict.new([

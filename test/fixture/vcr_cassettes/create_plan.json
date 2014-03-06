@@ -1,12 +1,12 @@
 [
   {
     "request": {
-      "url": "https://api.stripe.com/v1/customers",
+      "url": "https://api.stripe.com/v1/plans",
       "headers": {
         "Authorization": "Bearer API_KEY"
       },
       "method": "post",
-      "body": "description=Delete+User%21&email=foo2%40bar.com",
+      "body": "name=Create+a+Plan&id=create_a_plan&interval=week&amount=1000&currency=USD",
       "options": []
     },
     "response": {
@@ -14,22 +14,22 @@
       "status_code": 200,
       "headers": {
         "Server": "nginx",
-        "Date": "Thu, 06 Mar 2014 03:48:29 GMT",
+        "Date": "Thu, 06 Mar 2014 03:48:20 GMT",
         "Content-Type": "application/json;charset=utf-8",
-        "Content-Length": "556",
+        "Content-Length": "252",
         "Connection": "keep-alive",
-        "Access-Control-Max-Age": "300",
-        "Access-Control-Allow-Credentials": "true",
         "Cache-Control": "no-cache, no-store",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Max-Age": "300",
         "Access-Control-Allow-Methods": "GET, POST, HEAD, OPTIONS, DELETE",
         "Strict-Transport-Security": "max-age=31556926; includeSubDomains"
       },
-      "body": "{\n  \"object\": \"customer\",\n  \"created\": 1394077709,\n  \"id\": \"cus_3c6iJeuz8IjeWW\",\n  \"livemode\": false,\n  \"description\": \"Delete User!\",\n  \"email\": \"foo2@bar.com\",\n  \"delinquent\": false,\n  \"metadata\": {},\n  \"subscriptions\": {\n    \"object\": \"list\",\n    \"count\": 0,\n    \"url\": \"/v1/customers/cus_3c6iJeuz8IjeWW/subscriptions\",\n    \"data\": []\n  },\n  \"discount\": null,\n  \"account_balance\": 0,\n  \"currency\": null,\n  \"cards\": {\n    \"object\": \"list\",\n    \"count\": 0,\n    \"url\": \"/v1/customers/cus_3c6iJeuz8IjeWW/cards\",\n    \"data\": []\n  },\n  \"default_card\": null\n}\n"
+      "body": "{\n  \"interval\": \"week\",\n  \"name\": \"Create a Plan\",\n  \"created\": 1394077700,\n  \"amount\": 1000,\n  \"currency\": \"usd\",\n  \"id\": \"create_a_plan\",\n  \"object\": \"plan\",\n  \"livemode\": false,\n  \"interval_count\": 1,\n  \"trial_period_days\": null,\n  \"metadata\": {}\n}\n"
     }
   },
   {
     "request": {
-      "url": "https://api.stripe.com/v1/customers/cus_3c6iJeuz8IjeWW",
+      "url": "https://api.stripe.com/v1/plans/create_a_plan",
       "headers": {
         "Authorization": "Bearer API_KEY"
       },
@@ -42,9 +42,9 @@
       "status_code": 200,
       "headers": {
         "Server": "nginx",
-        "Date": "Thu, 06 Mar 2014 03:48:29 GMT",
+        "Date": "Thu, 06 Mar 2014 03:48:21 GMT",
         "Content-Type": "application/json;charset=utf-8",
-        "Content-Length": "52",
+        "Content-Length": "47",
         "Connection": "keep-alive",
         "Access-Control-Max-Age": "300",
         "Access-Control-Allow-Credentials": "true",
@@ -52,7 +52,7 @@
         "Cache-Control": "no-cache, no-store",
         "Strict-Transport-Security": "max-age=31556926; includeSubDomains"
       },
-      "body": "{\n  \"deleted\": true,\n  \"id\": \"cus_3c6iJeuz8IjeWW\"\n}\n"
+      "body": "{\n  \"deleted\": true,\n  \"id\": \"create_a_plan\"\n}\n"
     }
   }
 ]

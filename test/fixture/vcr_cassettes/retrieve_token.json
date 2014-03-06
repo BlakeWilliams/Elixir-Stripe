@@ -14,22 +14,22 @@
       "status_code": 200,
       "headers": {
         "Server": "nginx",
-        "Date": "Tue, 04 Mar 2014 03:28:56 GMT",
+        "Date": "Thu, 06 Mar 2014 03:48:32 GMT",
         "Content-Type": "application/json;charset=utf-8",
         "Content-Length": "551",
         "Connection": "keep-alive",
         "Access-Control-Max-Age": "300",
         "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Methods": "GET, POST, HEAD, OPTIONS, DELETE",
         "Cache-Control": "no-cache, no-store",
+        "Access-Control-Allow-Methods": "GET, POST, HEAD, OPTIONS, DELETE",
         "Strict-Transport-Security": "max-age=31556926; includeSubDomains"
       },
-      "body": "{\n  \"id\": \"tok_3bLwfj25DFGvgQ\",\n  \"livemode\": false,\n  \"created\": 1393903736,\n  \"used\": false,\n  \"object\": \"token\",\n  \"type\": \"card\",\n  \"card\": {\n    \"id\": \"card_3bLwREo464ewDj\",\n    \"object\": \"card\",\n    \"last4\": \"4242\",\n    \"type\": \"Visa\",\n    \"exp_month\": 12,\n    \"exp_year\": 2015,\n    \"fingerprint\": \"WnozobTvCFyFfmOJ\",\n    \"customer\": null,\n    \"country\": \"US\",\n    \"name\": null,\n    \"address_line1\": null,\n    \"address_line2\": null,\n    \"address_city\": null,\n    \"address_state\": null,\n    \"address_zip\": null,\n    \"address_country\": null\n  }\n}\n"
+      "body": "{\n  \"id\": \"tok_3c6itRYDCs0ct0\",\n  \"livemode\": false,\n  \"created\": 1394077712,\n  \"used\": false,\n  \"object\": \"token\",\n  \"type\": \"card\",\n  \"card\": {\n    \"id\": \"card_3c6iFFcaeqzRIu\",\n    \"object\": \"card\",\n    \"last4\": \"4242\",\n    \"type\": \"Visa\",\n    \"exp_month\": 12,\n    \"exp_year\": 2015,\n    \"fingerprint\": \"WnozobTvCFyFfmOJ\",\n    \"customer\": null,\n    \"country\": \"US\",\n    \"name\": null,\n    \"address_line1\": null,\n    \"address_line2\": null,\n    \"address_city\": null,\n    \"address_state\": null,\n    \"address_zip\": null,\n    \"address_country\": null\n  }\n}\n"
     }
   },
   {
     "request": {
-      "url": "https://api.stripe.com/v1/tokens/tok_3bLwfj25DFGvgQ",
+      "url": "https://api.stripe.com/v1/tokens/tok_3c6itRYDCs0ct0",
       "headers": {
         "Authorization": "Bearer API_KEY"
       },
@@ -42,7 +42,7 @@
       "status_code": 200,
       "headers": {
         "Server": "nginx",
-        "Date": "Tue, 04 Mar 2014 03:28:57 GMT",
+        "Date": "Thu, 06 Mar 2014 03:48:33 GMT",
         "Content-Type": "application/json;charset=utf-8",
         "Content-Length": "551",
         "Connection": "keep-alive",
@@ -52,7 +52,7 @@
         "Cache-Control": "no-cache, no-store",
         "Strict-Transport-Security": "max-age=31556926; includeSubDomains"
       },
-      "body": "{\n  \"id\": \"tok_3bLwfj25DFGvgQ\",\n  \"livemode\": false,\n  \"created\": 1393903736,\n  \"used\": false,\n  \"object\": \"token\",\n  \"type\": \"card\",\n  \"card\": {\n    \"id\": \"card_3bLwREo464ewDj\",\n    \"object\": \"card\",\n    \"last4\": \"4242\",\n    \"type\": \"Visa\",\n    \"exp_month\": 12,\n    \"exp_year\": 2015,\n    \"fingerprint\": \"WnozobTvCFyFfmOJ\",\n    \"customer\": null,\n    \"country\": \"US\",\n    \"name\": null,\n    \"address_line1\": null,\n    \"address_line2\": null,\n    \"address_city\": null,\n    \"address_state\": null,\n    \"address_zip\": null,\n    \"address_country\": null\n  }\n}\n"
+      "body": "{\n  \"id\": \"tok_3c6itRYDCs0ct0\",\n  \"livemode\": false,\n  \"created\": 1394077712,\n  \"used\": false,\n  \"object\": \"token\",\n  \"type\": \"card\",\n  \"card\": {\n    \"id\": \"card_3c6iFFcaeqzRIu\",\n    \"object\": \"card\",\n    \"last4\": \"4242\",\n    \"type\": \"Visa\",\n    \"exp_month\": 12,\n    \"exp_year\": 2015,\n    \"fingerprint\": \"WnozobTvCFyFfmOJ\",\n    \"customer\": null,\n    \"country\": \"US\",\n    \"name\": null,\n    \"address_line1\": null,\n    \"address_line2\": null,\n    \"address_city\": null,\n    \"address_state\": null,\n    \"address_zip\": null,\n    \"address_country\": null\n  }\n}\n"
     }
   }
 ]

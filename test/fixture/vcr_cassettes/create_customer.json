@@ -14,17 +14,17 @@
       "status_code": 200,
       "headers": {
         "Server": "nginx",
-        "Date": "Tue, 04 Mar 2014 03:02:34 GMT",
+        "Date": "Thu, 06 Mar 2014 03:48:30 GMT",
         "Content-Type": "application/json;charset=utf-8",
         "Content-Length": "553",
         "Connection": "keep-alive",
-        "Access-Control-Max-Age": "300",
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Methods": "GET, POST, HEAD, OPTIONS, DELETE",
         "Cache-Control": "no-cache, no-store",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Max-Age": "300",
+        "Access-Control-Allow-Methods": "GET, POST, HEAD, OPTIONS, DELETE",
         "Strict-Transport-Security": "max-age=31556926; includeSubDomains"
       },
-      "body": "{\n  \"object\": \"customer\",\n  \"created\": 1393902154,\n  \"id\": \"cus_3bLWW5z7fHZfRd\",\n  \"livemode\": false,\n  \"description\": \"Test User!\",\n  \"email\": \"new@bar.com\",\n  \"delinquent\": false,\n  \"metadata\": {},\n  \"subscriptions\": {\n    \"object\": \"list\",\n    \"count\": 0,\n    \"url\": \"/v1/customers/cus_3bLWW5z7fHZfRd/subscriptions\",\n    \"data\": []\n  },\n  \"discount\": null,\n  \"account_balance\": 0,\n  \"currency\": null,\n  \"cards\": {\n    \"object\": \"list\",\n    \"count\": 0,\n    \"url\": \"/v1/customers/cus_3bLWW5z7fHZfRd/cards\",\n    \"data\": []\n  },\n  \"default_card\": null\n}\n"
+      "body": "{\n  \"object\": \"customer\",\n  \"created\": 1394077710,\n  \"id\": \"cus_3c6i638QHvIo4m\",\n  \"livemode\": false,\n  \"description\": \"Test User!\",\n  \"email\": \"new@bar.com\",\n  \"delinquent\": false,\n  \"metadata\": {},\n  \"subscriptions\": {\n    \"object\": \"list\",\n    \"count\": 0,\n    \"url\": \"/v1/customers/cus_3c6i638QHvIo4m/subscriptions\",\n    \"data\": []\n  },\n  \"discount\": null,\n  \"account_balance\": 0,\n  \"currency\": null,\n  \"cards\": {\n    \"object\": \"list\",\n    \"count\": 0,\n    \"url\": \"/v1/customers/cus_3c6i638QHvIo4m/cards\",\n    \"data\": []\n  },\n  \"default_card\": null\n}\n"
     }
   }
 ]

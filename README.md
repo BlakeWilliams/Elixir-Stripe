@@ -76,7 +76,7 @@ The following parts of the API need to be implemented
 * ~~Customers~~
 * ~~Cards~~
 * Subscriptions
-* Plans
+* ~~Plans~~
 * Coupons
 * Discounts
 * Invoices
